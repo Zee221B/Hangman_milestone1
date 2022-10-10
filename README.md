@@ -11,4 +11,3 @@ if ((guess>= 'a' and guess<= 'z') or (guess>= 'A' and guess<= 'Z')):
     print("Good guess!")
 else:
     print("Oops! That is not a valid input")
-hello

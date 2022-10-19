@@ -91,3 +91,77 @@ class Hangman:
 
 my_game = Hangman(word_list = ["doctor", "hello", "apple", "people"])
 my_game.ask_for_input()
+
+
+
+CYLINDER
+from cgitb import small
+import math
+
+class Cylinder:
+    def __init__(self, height, radius):
+        self.height = height
+        self.radius = radius
+        self.surface_area = self.get_surface_area()
+        self.volume = None 
+
+    def get_surface_area(self):
+        surface_area_value = 3.14*self.radius*self.height + 2*3.14*(self.radius ** 2) 
+        return(surface_area_value)
+
+    def get_volume(self):
+        volume_value = 3.14*self.radius**2*self.height
+        return(volume_value)
+      
+
+small_cylinder = Cylinder(5, 10)
+big_cylinder = Cylinder(10, 8)
+
+print(small_cylinder.surface_area)
+print(small_cylinder.get_volume())
+#print(small_cylinder.get_surface_area())
+#print(big_cylinder.height)
+
+CAR
+from unittest import TestLoader
+
+
+class Car:
+    def __init__(self, model, year=2022):
+        self.model = model
+        self.year = year
+        self.miles_driven = 0
+        
+    def info(self):
+        print(f"The car {self.model} was made in {self.year}.")
+    
+    def drive(self):
+            print("Vroom!")
+
+    def update_miles_driven(self, additional_miles):
+        self.miles_driven = additional_miles
+        print("You have driven " + str(self.miles_driven) + " miles so far!")
+    
+    def increment_miles_driven(self, additional_miles):
+        # add miles driven by 1
+        self.miles_driven += additional_miles
+        print("You have driven " + str(self.miles_driven) + " miles so far!")
+
+my_car = Car("Tesla")
+
+my_car.info()
+
+my_car.drive()
+
+my_car.update_miles_driven(0)
+my_car.increment_miles_driven(1)
+
+MAGIC METHODS
+class Vector:
+    def __init__(self, three, nine, ten):
+        self.three = three
+        self.nine = nine
+        self.ten = ten
+    
+    def __repr__(self):
+        return repr()

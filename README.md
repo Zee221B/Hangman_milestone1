@@ -166,15 +166,17 @@ class Vector:
     def __repr__(self):
         return repr()
 
-HANGMAN PROJECT ATTEMPT 2
+HANGMAN PROJECT ATTEMPT 2 - Complete 
+
+For this project, I utilised object-oritented programming. I creatd he Hangman class and within that defined parameters within methods, including the magic 'init' method. I defined what happens when the user's guess is in the word, and how this affects the number of lives they have left, I also defined the input to check if the user guessed a valid single, alphabetical letter. For both of these instances I created the functions check_guess and ask_for_input. The conditions within these functions were in the form of 'if-else' statements and 'while' loops.
 
 import random
 
 
 # define the list possible words and choose random word from list
 
-word_list = ["strawberries", "dates", "pears", "bananas", "kiwi"]
-word = random.choice(word_list)
+
+# word = random.choice(word_list)
 # print(word)
 
 
@@ -190,21 +192,25 @@ class Hangman:
     
     # method to check if guess is in the word
     def check_guess(self, guess):
-        print(guess)
-        if guess in word:
+        #print(guess)
+        if guess in self.word:
             print(f"Good guess! {guess} is in the word. ")
-            for char in range(len(self.word)):
-                    print(char)
-                    if self.word[char] == guess:
-                        self.word_guessed[char] = guess
-                        break
-                    print(self.word_guessed)
+            for index,char in enumerate(self.word):
+                    # print(index,char)
+                    if guess == char:
+                        self.word_guessed[index] = guess
+                        #break
+            print(self.word_guessed)
             self.num_letters -= 1   
             
         else:
             self.num_lives -= 1
             print(f"Sorry, {guess} is not in the word. Try again.")
             print(f"You have {self.num_lives} lives left.")
+            if self.num_lives == 0:
+                print("Oh no! You lost! ")
+            if self.num_lives != 0 and self.num_letters == 0:
+                print(f"Congratulations, you have won Hangman! :D ")
            
 
         self.list_of_guesses.append(guess)
@@ -220,12 +226,16 @@ class Hangman:
             elif guess in self.list_of_guesses:
                 print("You already tried that letter! ")
             else:
+                self.check_guess(guess)
                 self.list_of_guesses.append(guess)
 
-            show_guess = Hangman(word_list)
-            show_guess.check_guess(guess)
+           
 
+word_list = ["strawberry", "kiwi", "banana", "dates", "pear"]
 form_input = Hangman(word_list)
 form_input.ask_for_input()
 
    
+
+
+
